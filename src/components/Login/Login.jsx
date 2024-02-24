@@ -28,13 +28,15 @@ const Login = () => {
     const onSubmit = async (data) => {
         data.username && show();
         console.log(data)
+        const bodyData = JSON.stringify(data)
+        console.log(bodyData)
         const response = await fetch(`${apiURL}/authentication/login`, {
-            mode: 'no-cors',
+            // mode: 'no-cors',
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: bodyData
         }).then(res => {
             console.log(res)
         }).catch(error => {

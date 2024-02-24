@@ -39,7 +39,7 @@ const Home = () => {
     const [blogData, setBlogData] = useState(initialBlog);
     useEffect(() => {
         (async () => {
-            const response = await fetch(`${apiURL}/blog`, {
+            const response = await fetch(`${apiURL}/blog/blog_list`, {
                 mode: 'no-cors',
                 method: 'GET',
                 headers: {
@@ -48,6 +48,7 @@ const Home = () => {
             });
             // const resData = await response.json();
             // console.log(resData)
+            console.log(response)
             if (response.ok) setBlogData([])
             console.log(response)
         })()
